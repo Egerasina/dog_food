@@ -1,7 +1,7 @@
+import { Outlet } from 'react-router-dom'
 import './App.css'
 import { Footer } from './components/Footer/Footer'
 import { HeaderMemo as Header } from './components/Header/Header'
-import { Main } from './components/Main/Main'
 
 function App() {
   console.log('Render App')
@@ -10,8 +10,7 @@ function App() {
     <div className="container py-5">
       <Header />
       <hr />
-
-      <Main />
+      <Outlet />
       <hr />
       <Footer />
     </div>

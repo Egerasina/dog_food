@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { useTodoListMethodsContext } from '../../../../contexts/TodoListContextProvider'
+import { useTodoListMethodsContext } from '../../contexts/TodoListContextProvider'
 
 export function Form() {
   console.log('Render Form')
@@ -21,7 +21,7 @@ export function Form() {
   }
 
   return (
-    <div className="d-flex justify-content-center">
+    <div className="d-flex justify-content-center mb-5">
       <form
         onSubmit={submitHandler}
         className="d-flex flex-column align-items-center"

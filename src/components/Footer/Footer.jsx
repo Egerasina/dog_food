@@ -1,25 +1,30 @@
-import { memo } from 'react'
-import { useTodoListMethodsContext } from '../../contexts/TodoListContextProvider'
+/* eslint-disable linebreak-style */
+export function Footer() {
+  return <h1> </h1>
+}
 
-export const Footer = memo(() => {
-  console.log('Render Footer')
+// import { memo } from 'react'
+// import { useTodoListMethodsContext } from '../../contexts/TodoListContextProvider'
 
-  const { clearAllTodos } = useTodoListMethodsContext()
+// export const Footer = memo(() => {
+//   console.log('Render Footer')
 
-  const clearHandler = (e) => {
-    clearAllTodos(e, 'hello')
-  }
+//   const { clearAllTodos } = useTodoListMethodsContext()
 
-  return (
-    <footer className="d-flex justify-content-center">
-      <button
-        // onClick={clearAllTodos}
-        onClick={clearHandler}
-        type="button"
-        className="btn btn-dark"
-      >
-        Clear all
-      </button>
-    </footer>
-  )
-})
+//   const clearHandler = (e) => {
+//     clearAllTodos(e, 'hello')
+//   }
+
+//   return (
+//     <footer className="d-flex justify-content-center">
+//       <button
+//         // onClick={clearAllTodos}
+//         onClick={clearHandler}
+//         type="button"
+//         className="btn btn-dark"
+//       >
+//         Clear all
+//       </button>
+//     </footer>
+//   )
+// })
