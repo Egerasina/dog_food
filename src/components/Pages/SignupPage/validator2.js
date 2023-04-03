@@ -3,7 +3,7 @@ import * as Yup from 'yup'
 
 export const signupFormValidationSchema = Yup.object({
   password: Yup.string()
-    .max(15, 'Must be 15 characters or less')
+    .min(6, 'Не меньше шести символов')
     .required('Required'),
   group: Yup.string()
     .oneOf(

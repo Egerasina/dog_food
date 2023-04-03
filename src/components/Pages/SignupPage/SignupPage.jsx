@@ -24,7 +24,7 @@ export function SignupPage() {
         <Field
           name="email"
           type="text"
-          placeholder="email here"
+          placeholder="Ваш email"
         />
         <ErrorMessage name="email" />
 
@@ -38,7 +38,7 @@ export function SignupPage() {
         <Field
           name="password"
           type="text"
-          placeholder="password here"
+          placeholder="Введите пароль"
         />
         <ErrorMessage name="password" />
 

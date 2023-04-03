@@ -23,14 +23,14 @@ export function SigninPage() {
         <Field
           name="email"
           type="text"
-          placeholder="email here"
+          placeholder="Введите e-mail"
         />
         <ErrorMessage name="email" />
 
         <Field
           name="password"
           type="text"
-          placeholder="password here"
+          placeholder="Введите пароль"
         />
         <ErrorMessage name="password" />
 
