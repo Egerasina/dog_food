@@ -2,10 +2,13 @@
 	background: transparent;
 }
 
+
+
 .footerMenu {
 	display: flex;
-	list-style: none;
-	gap: 8px;
+	justify-content: space-between;
+	list-style-type: none;
+	padding: 8px 40px;
 }
 
 .footerMenu li:nth-child(2) {
