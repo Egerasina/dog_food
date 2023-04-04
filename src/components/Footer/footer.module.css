@@ -1,3 +1,21 @@
 .wr {
-	background: blue;
+	background: transparent;
+}
+
+.footerMenu {
+	display: flex;
+	list-style: none;
+	gap: 8px;
+}
+
+.footerMenu li:nth-child(2) {
+	margin-left: auto;
+}
+
+.footerMenu a {
+	text-decoration: none;
+}
+
+.activeLink {
+	color: orange;
 }

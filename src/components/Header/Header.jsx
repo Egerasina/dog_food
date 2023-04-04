@@ -10,14 +10,16 @@ function Header() {
       <nav>
         <ul className={headerStyles.headerMenu}>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">
+              Главная
+            </Link>
           </li>
           <li>
             <NavLink
               className={({ isActive }) => classNames({ [headerStyles.activeLink]: isActive })}
               to="/products"
             >
-              Products
+              Каталог
             </NavLink>
           </li>
           <li>
@@ -25,7 +27,7 @@ function Header() {
               className={({ isActive }) => classNames({ [headerStyles.activeLink]: isActive })}
               to="/signup"
             >
-              Sign Up
+              Регистрация
             </NavLink>
           </li>
           <li>
@@ -33,19 +35,10 @@ function Header() {
               className={({ isActive }) => classNames({ [headerStyles.activeLink]: isActive })}
               to="/signin"
             >
-              Sign In
+              Вход
             </NavLink>
           </li>
-          <li>
-            <NavLink
-              className={
-                ({ isActive }) => classNames({ [headerStyles.activeLink]: isActive })
-              }
-              to="/contacts"
-            >
-              Contacts
-            </NavLink>
-          </li>
+
         </ul>
       </nav>
     </header>
