@@ -1,17 +1,15 @@
+// eslint-disable-next-line no-unused-vars
+import React from 'react'
 import { Outlet } from 'react-router-dom'
 import './App.css'
 import { Footer } from './components/Footer/Footer'
-import { HeaderMemo as Header } from './components/Header/Header'
+import { Header } from './components/Header/Header'
 
 function App() {
-  console.log('Render App')
-
   return (
-    <div className="container py-5">
+    <div className="App">
       <Header />
-      <hr />
       <Outlet />
-      <hr />
       <Footer />
     </div>
   )

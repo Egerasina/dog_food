@@ -1,21 +1,29 @@
-.wr {
-	background: transparent;
-}
-
-.headerMenu {
+.header {
 	display: flex;
-	list-style: none;
-	gap: 8px;
+	align-items: center;
+	list-style-type: none;
+	padding: 8px 40px;
+	gap: 20px;
+	font-size: 20px;
 }
 
-.headerMenu li:nth-child(2) {
+.header li:nth-child(2) {
 	margin-left: auto;
 }
 
-.headerMenu a {
+.link {
 	text-decoration: none;
+	transition: all 0.5s ease;
+	font-size: 20px;
+	font-weight: 600;
+}
+
+.link:hover {
+	font-size: 24px;
 }
 
 .activeLink {
+	font-size: 20px;
 	color: orange;
+	text-decoration: none;
 }
