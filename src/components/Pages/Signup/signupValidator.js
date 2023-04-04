@@ -4,14 +4,14 @@ import * as Yup from 'yup'
 export const signupFormValidationSchema = Yup.object({
   password: Yup.string()
     .min(4, 'Не меньше четырех символов')
-    .required('Required'),
+    .required('Обязательное поле'),
   group: Yup.string()
     .oneOf(
       ['sm9'],
-      'Invalid Group Type',
+      'Придется вспомнить',
     )
-    .required('Required'),
+    .required('Обязательное поле'),
   email: Yup.string()
-    .email('Invalid email address')
-    .required('Required'),
+    .email('Таких имейлов не бывет')
+    .required('Обязательное поле'),
 })

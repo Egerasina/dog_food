@@ -14,9 +14,6 @@ import signinStyle from './signinmodule.css'
 import { dogFoodApi } from '../../../api/DogFoodApi'
 import { withQuery } from '../../HOCs/withQuery'
 import { AppSetContext } from '../../../Contexts/AppSetContextProvider'
-// import { withQuery } from '../HOCs/withQuery'
-// import { AppSetContext } from '../../Contexts/AppContextProvider'
-// import { dogFoodApi } from '../../api/DogFoodApi'
 
 function SigninInner({ mutateAsync }) {
   const navigate = useNavigate()
@@ -99,44 +96,3 @@ function Signin() {
   )
 }
 export const SigninMemo = React.memo(Signin)
-
-// import {
-//   Formik, Form, ErrorMessage, Field,
-// } from 'formik'
-// import { signinFormValidationSchema } from './signinValidator'
-
-// const initialValues = {
-//   email: '',
-//   password: '',
-// }
-
-// export function SigninPage() {
-//   const submitHandler = (values) => {
-//     console.log({ values })
-//   }
-//   return (
-//     <Formik
-//       initialValues={initialValues}
-//       validationSchema={signinFormValidationSchema}
-//       onSubmit={submitHandler}
-//     >
-//       <Form className="d-flex flex-column">
-//         <Field
-//           name="email"
-//           type="text"
-//           placeholder="Введите e-mail"
-//         />
-//         <ErrorMessage name="email" />
-
-//         <Field
-//           name="password"
-//           type="text"
-//           placeholder="Введите пароль"
-//         />
-//         <ErrorMessage name="password" />
-
-//         <button type="submit">Submit</button>
-//       </Form>
-//     </Formik>
-//   )
-// }

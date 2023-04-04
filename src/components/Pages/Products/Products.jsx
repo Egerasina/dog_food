@@ -10,12 +10,7 @@ import { AppContext } from '../../../Contexts/AppSetContextProvider'
 import { dogFoodApi } from '../../../api/DogFoodApi'
 import { Loader } from '../../Loader/Loader'
 import productsStyle from './ProductsPage.module.css'
-// import { withQuery } from '../../HOCs/withQuery'
 
-// function ProductsInner({ data }) {
-
-// }
-// const ProductsWithQuery = withQuery(ProductsInner);
 export function Products() {
   console.log('render products')
   const navigate = useNavigate()

@@ -10,8 +10,6 @@ import { Main } from './components/Main/Main'
 import { Products } from './components/Pages/Products/Products'
 import { AppContextProvider } from './Contexts/AppSetContextProvider'
 
-// import { SigninPage } from './components/Pages/SigninPage/SigninPage'
-
 const myRouter = createBrowserRouter([
   {
     path: '/',
@@ -61,10 +59,3 @@ root.render(
     </AppContextProvider>
   </QueryClientProvider>,
 )
-
-// const root = ReactDOM.createRoot(document.getElementById('root'))
-// root.render(
-//   <React.StrictMode>
-//     <RouterProvider router={myRouter} />
-//   </React.StrictMode>,
-// )
