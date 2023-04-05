@@ -57,9 +57,9 @@ export function Header() {
             className={({ isActive }) => classNames({ [headerStyle.activeLink]: isActive }, [
               headerStyle.link,
             ])}
-            to="/signin"
+            to="/"
           >
-            Выход
+            Выйти
           </NavLink>
         </li>
       ) : (
