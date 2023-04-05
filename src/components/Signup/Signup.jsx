@@ -1,4 +1,3 @@
-/* eslint-disable linebreak-style */
 /* eslint-disable import/prefer-default-export */
 import {
   Formik, Form, Field, ErrorMessage,
@@ -6,10 +5,10 @@ import {
 import classNames from 'classnames'
 import { useMutation } from '@tanstack/react-query'
 import { useNavigate } from 'react-router-dom'
-import signupStyle from './signupmodule.css'
-import { signupFormValidationSchema } from './signupValidator'
-import { withQuery } from '../../HOCs/withQuery'
-import { dogFoodApi } from '../../../api/DogFoodApi'
+import signupStyle from './signup.module.css'
+import { signupValidationScheme } from './signupValidator'
+import { withQuery } from '../HOCs/withQuery'
+import { dogFoodApi } from '../../api/DogFoodApi'
 
 function SignupInner({ mutateAsync }) {
   const navigate = useNavigate()
@@ -24,7 +23,7 @@ function SignupInner({ mutateAsync }) {
         group: 'sm9',
         password: '',
       }}
-      validationSchema={signupFormValidationSchema}
+      validationSchema={signupValidationScheme}
       onSubmit={submitHandler}
     >
       {(formik) => {

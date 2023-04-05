@@ -1,7 +1,6 @@
-/* eslint-disable linebreak-style */
 import * as Yup from 'yup'
 
-export const signupFormValidationSchema = Yup.object({
+export const signupValidationScheme = Yup.object({
   password: Yup.string()
     .min(4, 'Не меньше четырех символов')
     .required('Обязательное поле'),

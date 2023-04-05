@@ -24,7 +24,7 @@
     margin-top: 20px;
 }
 
-.price {
+.totalPrice {
     font-size: 16px;
 }
 
@@ -36,6 +36,9 @@
     font-weight: 600;
     margin-top: 8px;
     cursor: pointer;
+
+    position: absolute;
+    right: 8px;
 }
 
 .wight {
@@ -57,7 +60,7 @@
 }
 
 .like {
-    color: red;
+    color: transparent;
     position: absolute;
     right: 8px;
 }
@@ -74,4 +77,9 @@
     position: absolute;
     gap: 4px;
     display: flex;
+}
+
+.price {
+    text-decoration: line-through;
+    font-size: 12px;
 }

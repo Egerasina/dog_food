@@ -1,32 +1,22 @@
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import { Signup } from './components/Pages/Signup/Signup'
-import { SigninMemo as Signin } from './components/Pages/Signin/Signin'
 import './index.css'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import { Provider } from 'react-redux'
 import App from './App'
-import { ContactsPage } from './components/Pages/ContactsPage/ContactsPage'
+import { Signup } from './components/Signup/Signup'
+import { SigninMemo as Signin } from './components/Signin/Signin'
+import { Products } from './components/Products/Products'
+import { Cart } from './components/Cart/Cart'
+import { Contacts } from './components/Contacts/Contacts'
 import { Main } from './components/Main/Main'
-import { Products } from './components/Pages/Products/Products'
-import { AppContextProvider } from './Contexts/AppSetContextProvider'
+import { store } from './redux/store'
 
-const myRouter = createBrowserRouter([
+const router = createBrowserRouter([
   {
     path: '/',
     element: <App />,
     children: [
-      {
-        index: true,
-        element: <Main />,
-      },
-      {
-        path: 'contacts',
-        element: <ContactsPage />,
-      },
-      {
-        path: 'products',
-        element: <Products />,
-      },
       {
         path: 'signup',
         element: <Signup />,
@@ -34,6 +24,19 @@ const myRouter = createBrowserRouter([
       {
         path: 'signin',
         element: <Signin />,
+      },
+      { index: true, element: <Main /> },
+      {
+        path: 'products',
+        element: <Products />,
+      },
+      {
+        path: 'cart',
+        element: <Cart />,
+      },
+      {
+        path: 'contacts',
+        element: <Contacts />,
       },
     ],
   },
@@ -50,12 +53,14 @@ function clearClient() {
     queryKey: ['allProducts'],
   })
 }
-
 const root = ReactDOM.createRoot(document.getElementById('root'))
 root.render(
-  <QueryClientProvider client={queryClient} clearClient={clearClient}>
-    <AppContextProvider>
-      <RouterProvider router={myRouter} />
-    </AppContextProvider>
+  <QueryClientProvider
+    client={queryClient}
+    clearClient={clearClient}
+  >
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </QueryClientProvider>,
 )

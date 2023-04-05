@@ -1,6 +1,6 @@
-/* eslint-disable linebreak-style */
-import { useContext } from 'react'
-import { AppContext } from '../../../Contexts/AppSetContextProvider'
+import { useDispatch, useSelector } from 'react-redux'
+import { addNewProduct } from '../../redux/slices/cartSlice'
+import { getUserIDSelector } from '../../redux/slices/userIDSlice'
 import productItemStyle from './productItem.module.css'
 
 export function ProductItem({
@@ -11,8 +11,13 @@ export function ProductItem({
   discount,
   tags,
   likes,
+  id,
 }) {
-  const { userID } = useContext(AppContext)
+  const userID = useSelector(getUserIDSelector)
+  const dispatch = useDispatch()
+  function addToCartHandler() {
+    dispatch(addNewProduct(id))
+  }
   return (
     <div className={productItemStyle.card}>
       <div className={productItemStyle.tagsWrapper}>
@@ -44,18 +49,27 @@ export function ProductItem({
           <i className="fa-regular fa-heart" />
         )}
       </div>
-      <div className={productItemStyle.price}>
-        {price}
+      <div className={productItemStyle.totalPrice}>
+        {price * (1 - discount / 100)}
         {' '}
         ₽
       </div>
+      {discount ? (
+        <div className={productItemStyle.price}>
+          {price}
+          {' '}
+          ₽
+        </div>
+      ) : null}
       <div className={productItemStyle.wight}>{wight}</div>
       <div className={productItemStyle.title}>{title}</div>
       <button
+        onClick={addToCartHandler}
         className={productItemStyle.buttonBuy}
         type="button"
+        title="В корзину"
       >
-        В корзину
+        <i className="fa-solid fa-cart-shopping" />
       </button>
     </div>
   )

@@ -1,20 +1,22 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
+/* eslint-disable react/jsx-no-bind */
 import { QueryClientProvider, useQueryClient } from '@tanstack/react-query'
 import classNames from 'classnames'
-import { useContext } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
+import { getCartSelector } from '../../redux/slices/cartSlice'
+import { clearToken, getTokenSelector } from '../../redux/slices/tokenSlice'
+import { clearUserID } from '../../redux/slices/userIDSlice'
 import headerStyle from './header.module.css'
-import { AppContext, AppSetContext } from '../../Contexts/AppSetContextProvider'
 
 export function Header() {
   console.log('render header')
-  const { token } = useContext(AppContext)
-  const { setToken, setUserID } = useContext(AppSetContext)
+  const dispatch = useDispatch()
+  const token = useSelector(getTokenSelector)
+  const cart = useSelector(getCartSelector)
   const { clearClient } = useQueryClient(QueryClientProvider)
-
   function logoutHandler() {
-    setToken('')
-    setUserID('')
+    dispatch((clearToken()))
+    dispatch((clearUserID()))
     setTimeout(clearClient)
   }
   return (
@@ -22,21 +24,35 @@ export function Header() {
       <li>
         <NavLink
           className={({ isActive }) => classNames({ [headerStyle.activeLink]: isActive }, [
-            headerStyle.link,
+            headerStyle.link, headerStyle.mainWrapper,
           ])}
           to="/"
         >
           Главная
         </NavLink>
+
       </li>
       <li>
+
         <NavLink
           className={({ isActive }) => classNames({ [headerStyle.activeLink]: isActive }, [
-            headerStyle.link,
+            headerStyle.link, headerStyle.productsWrapper,
           ])}
           to="/products"
         >
           Каталог
+        </NavLink>
+      </li>
+
+      <li>
+        <NavLink
+          className={({ isActive }) => classNames({ [headerStyle.activeLink]: isActive }, [
+            headerStyle.link, headerStyle.cartWrapper,
+          ])}
+          to="/cart"
+        >
+          <i className="fa-solid fa-cart-shopping" />
+          <div className={headerStyle.productsQuantity}>{token ? (cart.length || '') : '' }</div>
         </NavLink>
       </li>
       <li>
@@ -52,14 +68,13 @@ export function Header() {
       {token ? (
         <li>
           <NavLink
-            // eslint-disable-next-line react/jsx-no-bind
             onClick={logoutHandler}
             className={({ isActive }) => classNames({ [headerStyle.activeLink]: isActive }, [
               headerStyle.link,
             ])}
-            to="/signin"
+            to="/"
           >
-            Выход
+            Выйти
           </NavLink>
         </li>
       ) : (
