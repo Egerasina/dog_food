@@ -55,7 +55,7 @@ export function Header() {
           <img
             className={headerStyle.logo}
             src={cartIcon}
-            alt="logo"
+            alt="корзина"
           />
           <div className={headerStyle.productsQuantity}>{token ? (cart.length || '') : '' }</div>
         </NavLink>
