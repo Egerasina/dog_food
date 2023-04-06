@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+// import classNames from 'classnames'
 import { useEffect, useState } from 'react'
 import { useDispatch } from 'react-redux'
 import { useSearchParams } from 'react-router-dom'
@@ -44,11 +44,11 @@ export function Search() {
       <i
         onClick={clearSearchHandler}
         title="Сбросить поиск"
-        className={classNames(
-          'fa-solid fa-circle-xmark',
-          searchStyle.searchClearButton,
-        )}
-      />
+        className={searchStyle.searchClearButton}
+      >
+        {' '}
+        X
+      </i>
     </div>
   )
 }
