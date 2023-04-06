@@ -2,6 +2,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { addNewProduct } from '../../redux/slices/cartSlice'
 import { getUserIDSelector } from '../../redux/slices/userIDSlice'
 import productItemStyle from './productItem.module.css'
+import cartIcon from '../cartIcon.png'
 
 export function ProductItem({
   title,
@@ -69,7 +70,10 @@ export function ProductItem({
         type="button"
         title="В корзину"
       >
-        <i className="fa-solid fa-cart-shopping" />
+        <img
+          src={cartIcon}
+          alt="корзина"
+        />
       </button>
     </div>
   )

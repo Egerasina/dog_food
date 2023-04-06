@@ -6,6 +6,7 @@ import { getCartSelector } from '../../redux/slices/cartSlice'
 import { Modal } from '../Modal/Modal'
 import { useActions } from './useActions'
 import cartItemStyle from './cartItem.module.css'
+import trash from '../trash.png'
 
 export function CartItem({
   title, photo, price, wight, discount, id, stock,
@@ -69,7 +70,7 @@ export function CartItem({
             onClick={() => quantityReduceHandler(id)}
             className={cartItemStyle.quantityButton}
           >
-            <i className="fa-solid fa-minus" />
+            -
           </button>
           {count}
           <button
@@ -78,7 +79,7 @@ export function CartItem({
             onClick={() => quantityIncreaseHandler(id)}
             className={cartItemStyle.quantityButton}
           >
-            <i className="fa-solid fa-plus" />
+            +
           </button>
         </div>
         <div className={cartItemStyle.price}>
@@ -92,7 +93,10 @@ export function CartItem({
           title="Убрать из корзины"
           className={cartItemStyle.deleteButton}
         >
-          <i className="fa-solid fa-trash" />
+          <img
+            src={trash}
+            alt="удалить"
+          />
         </button>
       </div>
       <div className={cartItemStyle.costWrapper}>

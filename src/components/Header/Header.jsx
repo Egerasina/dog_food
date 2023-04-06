@@ -7,6 +7,7 @@ import { getCartSelector } from '../../redux/slices/cartSlice'
 import { clearToken, getTokenSelector } from '../../redux/slices/tokenSlice'
 import { clearUserID } from '../../redux/slices/userIDSlice'
 import headerStyle from './header.module.css'
+import cartIcon from '../cartIcon.png'
 
 export function Header() {
   console.log('render header')
@@ -51,7 +52,11 @@ export function Header() {
           ])}
           to="/cart"
         >
-          <i className="fa-solid fa-cart-shopping" />
+          <img
+            className={headerStyle.logo}
+            src={cartIcon}
+            alt="logo"
+          />
           <div className={headerStyle.productsQuantity}>{token ? (cart.length || '') : '' }</div>
         </NavLink>
       </li>
